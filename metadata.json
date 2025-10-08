@@ -1,0 +1,5 @@
+{
+  "name": "KI-Prompt-Bibliothek",
+  "description": "Eine elegante Webanwendung zum Speichern, Verwalten und Visualisieren Ihrer KI-Prompts. Sie verwendet die Gemini-API, um automatisch ein einzigartiges Miniaturbild für jeden von Ihnen erstellten Prompt zu generieren.",
+  "requestFramePermissions": []
+}

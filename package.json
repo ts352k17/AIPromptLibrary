@@ -1,0 +1,32 @@
+
+{
+  "name": "ai-prompt-library-server",
+  "version": "1.0.0",
+  "description": "Backend server for the AI Prompt Library",
+  "main": "server.mjs",
+  "type": "module",
+  "scripts": {
+    "start": "npm run build && node server.mjs",
+    "start:backend": "node server.mjs",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^1.22.0",
+    "dotenv": "^17.2.3",
+    "express": "^4.19.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.1",
+    "@vitejs/plugin-react": "^5.0.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.9"
+  }
+}
+

@@ -1,0 +1,15 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" rx="56" fill="#0F172A"/>
+  <defs>
+    <linearGradient id="iconGrad" x1="128" y1="48" x2="128" y2="216" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#A855F7"/>
+    </linearGradient>
+  </defs>
+  <path d="M128 48C94.9248 48 68 74.9248 68 108C68 132.073 83.2198 152.607 104 159.952V180H152V159.952C172.78 152.607 188 132.073 188 108C188 74.9248 161.075 48 128 48Z" fill="url(#iconGrad)"/>
+  <rect x="108" y="180" width="40" height="12" rx="4" fill="url(#iconGrad)"/>
+  <rect x="96" y="192" width="64" height="12" rx="6" fill="url(#iconGrad)"/>
+  <rect x="92" y="100" width="72" height="8" rx="4" fill="#E0E7FF" fill-opacity="0.8"/>
+  <rect x="92" y="116" width="72" height="8" rx="4" fill="#E0E7FF" fill-opacity="0.8"/>
+  <rect x="92" y="132" width="56" height="8" rx="4" fill="#E0E7FF" fill-opacity="0.8"/>
+</svg>
