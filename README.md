@@ -6,7 +6,7 @@ Dieses Dokument beschreibt die vollständige Einrichtung und den Betrieb der AI 
 
 - **Linux-Server**: Ein Server mit `sudo`-Zugriff.
 - **Node.js**: Eine aktuelle LTS-Version (z.B. v18+). Die Installation über `nvm` (Node Version Manager) wird empfohlen.
-- **Nginx**: Ein installierter und laufender Nginx Webserver.
+- **Nginx**: Ein installierter und laufender Nginx Webserver (oder andere Webserver).
 - **PM2**: Ein global installierter Prozessmanager für Node.js.
   ```bash
   sudo npm install pm2 -g
@@ -21,6 +21,7 @@ Dieses Dokument beschreibt die vollständige Einrichtung und den Betrieb der AI 
     ```bash
     cd /var/www/html/aiprompt
     ```
+    Vergessen Sie nicht die Berechtigungen anzupassen! (www-data)
 
 3.  **Abhängigkeiten installieren**:
     ```bash
@@ -63,28 +64,22 @@ Damit der Server im Produktivbetrieb die korrekten Dateien ausliefert, muss die 
       res.sendFile(path.join(__dirname, 'dist', 'index.html'));
     });
     ```
-*Diese Änderungen wurden bereits auf Ihrer aktuellen Version durchgeführt.*
 
 ## 5. Deployment im Produktivbetrieb
 
 ### Teil A: Nginx als Reverse-Proxy einrichten
 
-1.  **Konfigurationsdatei kopieren**: Die mitgelieferte Nginx-Konfiguration in das `sites-available`-Verzeichnis von Nginx kopieren.
-    ```bash
-    sudo cp nginx_prompt_library.conf /etc/nginx/sites-available/aiprompt
-    ```
-
-2.  **Seite aktivieren**: Erstellen Sie einen symbolischen Link zur Konfiguration im `sites-enabled`-Verzeichnis.
+1.  **Seite aktivieren**: Erstellen Sie einen symbolischen Link zur Konfiguration im `sites-enabled`-Verzeichnis.
     ```bash
     sudo ln -s /etc/nginx/sites-available/aiprompt /etc/nginx/sites-enabled/
     ```
 
-3.  **Konfiguration testen**: Überprüfen Sie die Nginx-Konfiguration auf Syntaxfehler.
+2.  **Konfiguration testen**: Überprüfen Sie die Nginx-Konfiguration auf Syntaxfehler.
     ```bash
     sudo nginx -t
     ```
 
-4.  **Nginx neu starten**: Wenn der Test erfolgreich war, laden Sie die Konfiguration neu.
+3.  **Nginx neu starten**: Wenn der Test erfolgreich war, laden Sie die Konfiguration neu.
     ```bash
     sudo systemctl restart nginx
     ```
@@ -106,8 +101,6 @@ Damit der Server im Produktivbetrieb die korrekten Dateien ausliefert, muss die 
     pm2 save
     ```
 
-Ihre Anwendung ist nun vollständig eingerichtet und läuft stabil.
-
 ## 6. Nützliche PM2-Befehle
 
 - **Status anzeigen**: `pm2 status`
@@ -115,12 +108,3 @@ Ihre Anwendung ist nun vollständig eingerichtet und läuft stabil.
 - **Anwendung neustarten**: `pm2 restart aiprompt`
 - **Anwendung stoppen**: `pm2 stop aiprompt`
 - **Anwendung aus PM2 entfernen**: `pm2 delete aiprompt`
-
-## 7. Entwicklung
-
-Für reine Frontend-Entwicklung können Sie den Vite-Entwicklungsserver nutzen. Dieser ist **nicht** für den Produktivbetrieb geeignet.
-
-```bash
-# Startet den Vite Dev-Server (meist auf Port 5173)
-npm run dev
-```
